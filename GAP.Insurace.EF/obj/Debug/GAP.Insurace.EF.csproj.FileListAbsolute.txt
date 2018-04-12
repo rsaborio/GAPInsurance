@@ -1,0 +1,11 @@
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\obj\Debug\GAP.Insurace.EF.csproj.CoreCompileInputs.cache
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\bin\Debug\GAP.Insurace.EF.dll.config
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\bin\Debug\GAP.Insurace.EF.dll
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\bin\Debug\GAP.Insurace.EF.pdb
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\bin\Debug\EntityFramework.dll
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\bin\Debug\EntityFramework.xml
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\obj\Debug\GAP.Insurace.EF.csproj.CopyComplete
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\obj\Debug\GAP.Insurace.EF.dll
+C:\Users\ronald\Documents\Gap\GAPPruebaSeguros\GAP.Insurace\GAP.Insurace.EF\obj\Debug\GAP.Insurace.EF.pdb
