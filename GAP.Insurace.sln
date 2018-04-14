@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAP.Insurace.ConsoleApp", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAP.Insurace.WebAPI", "GAP.Insurace.WebAPI\GAP.Insurace.WebAPI.csproj", "{F62FE310-4CAA-4A5B-B1FC-4D333ACE92A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAP.Insurace.MVC", "GAP.Insurace.MVC\GAP.Insurace.MVC.csproj", "{0C31585A-08CD-45CC-A022-748299ED385F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F62FE310-4CAA-4A5B-B1FC-4D333ACE92A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F62FE310-4CAA-4A5B-B1FC-4D333ACE92A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F62FE310-4CAA-4A5B-B1FC-4D333ACE92A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C31585A-08CD-45CC-A022-748299ED385F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C31585A-08CD-45CC-A022-748299ED385F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C31585A-08CD-45CC-A022-748299ED385F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C31585A-08CD-45CC-A022-748299ED385F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

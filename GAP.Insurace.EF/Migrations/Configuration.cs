@@ -14,16 +14,26 @@ namespace GAP.Insurace.EF.Migrations
 
         protected override void Seed(GAP.Insurace.EF.InsuranceContext context)
         {
+            Client c1 = new Client() { firstName = "Ronald", lastName = "Saborio" };
             context.Client.AddOrUpdate(x => x.id,
-            new Client() { id = 1, firstName = "Ronald", lastName = "Saborio" },
-            new Client() { id = 2, firstName = "Ozoora", lastName = "Tsubasa" },
-            new Client() { id = 3, firstName = "Ana", lastName = "Hernandez" }
+            c1,
+            new Client() { firstName = "Ozoora", lastName = "Tsubasa" },
+            new Client() { firstName = "Ana", lastName = "Hernandez" }
             );
 
-           context.CoverageType.AddOrUpdate(x => x.id,
-           new CoverageType() { id = 1, name = "Terremoto", description = "Terremoto" },
-           new CoverageType() { id = 2, name = "incendio", description = "incendio" },
-           new CoverageType() { id = 3, name = "Robo", description = "Robo" }
+            Policy p1 = new Policy() { name = " Poliza # 1", coverageType = CoverageTypeEnum.Terremoto, description = "Poliza # 1", fee = 50, initDate = DateTime.Now, monthsCoverage = 5, porcentage = 50, riskType = RiskType.bajo };
+            Policy p2 = new Policy() { name = " Poliza # 2", coverageType = CoverageTypeEnum.Terremoto, description = "Poliza # 1", fee = 50, initDate = DateTime.Now, monthsCoverage = 5, porcentage = 50, riskType = RiskType.bajo };
+           context.Policy.AddOrUpdate(x => x.id,
+           p1,
+           p2
+           );
+           context.ClientPolicy.AddOrUpdate(x => x.id,
+                new ClientPolicy() { client= c1 , policy= p1 },
+                new ClientPolicy() { client = c1, policy = p2 },
+                new ClientPolicy() { client = c1, policy = p1 },
+                new ClientPolicy() { client = c1, policy = p2 },
+                new ClientPolicy() { client = c1, policy = p1 },
+                new ClientPolicy() { client = c1, policy = p2 }
            );
 
         }

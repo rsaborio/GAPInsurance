@@ -1,0 +1,128 @@
+﻿@model IEnumerable<GAP.Insurace.MVC.Models.PolicyModel>
+
+@{
+    ViewBag.Title = "Policies";
+}
+
+<h2>Add Polices to Client </h2>
+
+<input name="huserId" id="huserId" type="hidden" value="@ViewBag.clientId">
+<p>
+    <a id="AddPolicyClient" class="btn btn-default"><i class="fas fa-plus-circle"></i> Add Policies To Client</a>
+</p>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Coverage
+            </th>
+            <th>
+                Risk
+            </th>
+            <th>
+                Coverage Percentage
+            </th>
+            <th>
+                Inital Date
+            </th>
+            <th>
+                Months of Coverage
+            </th>
+            <th>
+                Fee
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.CheckBox("cbxAdd", new { @class = "checkBoxClass", id = item.id.ToString() })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coverageType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.riskType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.porcentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.initDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthsCoverage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fee)
+            </td>
+        </tr>
+    }
+</table>
+@section scripts{
+    <script>
+    $(function () {
+        $('#AddPolicyClient').click(function () {
+            alertify.confirm("Add Policies.", "Do you want to add Policies to client",
+                function () {
+                    var cnt = $('.checkBoxClass');
+                    var listDelete = '';
+                    var clientId = '';
+                    cnt.each(function () {
+                        if (this.checked) {
+                            listDelete = listDelete + this.id + "|";
+                            clientId = $("#huserId").val();
+                            console.log(clientId);
+                        }
+                        console.log(listDelete);
+                    });
+                    $.ajax({
+                        url: "/ClientPolicy/AddPoliciesToClient",
+                        type: "POST",
+                        data: {
+                            idsPolice: listDelete,
+                            clientId: clientId
+                        },
+                        dataType: "html",
+                        success: function (data) {
+                             var url = '@Url.Action("Index", "ClientPolicy")'; 
+                            window.location.href = url; 
+                        },
+                        error: function () {
+
+                        }
+                    });
+                    //$("#TableContent").load("/ClientPolicy/DeleteList", { idsList: listDelete, id: clientId });
+                },
+                null);
+            return false;
+        });
+    });
+
+    function DeletePolicy(id) {
+        alertify.confirm("Delete.","Do you want to delete de client",
+            function () {
+                window.location.href = '@Url.Action("Delete", "Policy")/' + id;
+                },
+                null);
+    }
+
+    </script>
+}

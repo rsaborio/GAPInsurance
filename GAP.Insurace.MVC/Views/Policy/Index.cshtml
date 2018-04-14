@@ -1,0 +1,95 @@
+﻿@model IEnumerable<GAP.Insurace.MVC.Models.PolicyModel>
+
+@{
+    ViewBag.Title = "Policies";
+}
+
+<h2>Polices Maintenance</h2>
+
+<p>
+    <a href="@Url.Action("AddUpdate", "Policy")" class="btn btn-default"><i class="fas fa-plus-circle"></i> Add Policy</a>
+</p>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Coverage
+            </th>
+            <th>
+                Risk
+            </th>
+            <th>
+                Coverage Percentage
+            </th>
+            <th>
+                Inital Date
+            </th>
+            <th>
+                Months of Coverage
+            </th>
+            <th>
+                Fee
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coverageType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.riskType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.porcentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.initDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthsCoverage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fee)
+            </td>
+
+
+
+            <td>
+                <a href="@Url.Action("AddUpdate", "Policy", new {id = item.id })" class="btn btn-default"><i class="fas fa-pencil-alt"></i></a>
+                <a onclick="DeletePolicy(@item.id)" class="btn btn-default"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    }
+</table>
+@section scripts{
+    <script>
+        $(function () {
+            var smessage = '@TempData["PolicyMessage"]'
+            if (smessage != '')
+                alertify.success(smessage);
+
+        });
+        function DeletePolicy(id) {
+            alertify.confirm("Delete.","Do you want to delete the policy",
+                function () {
+                    window.location.href = '@Url.Action("Delete", "Policy")/' + id;
+                  },
+                  null);
+        }
+    </script>
+}

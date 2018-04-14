@@ -1,0 +1,61 @@
+﻿@model GAP.Insurace.MVC.Models.ClientPolicyListModel
+
+<table class="table table-striped" id="tbPolicies">
+    <thead class="thead-dark">
+        <tr>
+            <th> @Html.CheckBox("isDeleteAll", false, new { @class = "CheckAll" })</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Coverage</th>
+            <th>Risk</th>
+            <th>Coverage Percentage</th>
+            <th>Inital Date</th>
+            <th>Months of Coverage</th>
+            <th>Fee</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.clientPolicyList)
+    {
+        <tr>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.toDelete, new { @class = "checkBoxClass", id = item.id.ToString() })
+                @Html.HiddenFor(modelItem => item.id)
+                @Html.HiddenFor(modelItem => item.client.id, new { @class = "checkBoxClass", id = "hdn_"+item.id.ToString()})
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.policy.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.policy.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.policy.coverageType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.policy.riskType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.policy.porcentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.policy.initDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.policy.monthsCoverage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.policy.fee)
+            </td>
+
+        </tr>
+    }
+</table>
+
+
+<script type="text/javascript">
+    $('#isDeleteAll').click(function () {
+        $('input:checkbox').not(this).prop('checked', this.checked);
+    });
+
+    
+</script>

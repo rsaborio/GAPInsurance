@@ -10,10 +10,10 @@ namespace GAP.Insurace.EF
     public class InsuranceContext : DbContext
     {
         public InsuranceContext() 
-            : base("DefaultConnection")
+            : base("name=InsuranceDBConnectionString")
         {}
         public DbSet<Client> Client { get; set; }
         public DbSet<Policy> Policy { get; set; }
-        public DbSet<CoverageType> CoverageType { get; set; }
+        public DbSet<ClientPolicy> ClientPolicy { get; set; }
     }
 }

@@ -1,0 +1,104 @@
+﻿@model GAP.Insurace.MVC.Models.ClientPolicyListModel
+
+@{
+    ViewBag.Title = "Policies";
+}
+
+<h2>Polices assignment</h2>
+@Html.Hidden("huserId")
+<div class="form-group">
+    @Html.Label("Client: ")
+    @Html.DropDownListFor(x => x.clientList, new SelectList(Model.clientList, "id", "firstName"), "Select Client", htmlAttributes: new { @class = "form-control", id = "clientId" })
+</div>
+<p>
+    <a id="AddPolicy" class="btn btn-default"><i class="fas fa-plus-circle"></i> Add Policies To Client</a>
+    <a id="DeleteSelected" class="btn btn-default"><i class="fas fa-eraser"></i>Delete Selected</a>
+</p>
+
+
+
+<div id="TableContent" Class="myTable form-group">
+    @Html.Partial("PolicyClient", Model)
+</div>
+
+@section scripts{
+<script>
+        $(function () {
+            $("#clientId").change(function () {
+
+                var t = $(this).val();
+                if (t === "") {
+                    t = 0;
+                }//
+                var hdn = $("#huserId");
+                hdn.val(t);
+                $("#TableContent").load("/ClientPolicy/GetPoliciesByClient", { id: t });
+
+            });
+        });
+        $(function () {
+            $('#AddPolicy').click(function () {
+                var hdn = $("#huserId");
+                var path = '@Url.Action("AddPolicies", "ClientPolicy")?id=' + hdn.val();
+                console.log(path);
+                location.href = path;
+            });
+        });
+    $(function () {
+        $('#DeleteSelected').click(function () {
+            alertify.confirm("DeleteSelected.", "Do you want to delete de client",
+                function () {
+                    var cnt = $('.checkBoxClass');
+                    var listDelete = '';
+                    var clientId = '';
+                    cnt.each(function () {
+                        if (this.checked) {
+                            listDelete = listDelete + this.id + "|";
+                            clientId = $("#hdn_" + this.id).val();
+                            console.log(clientId);
+                        }
+                    });
+                    $.ajax({
+                        url: "/ClientPolicy/DeleteList",
+                        type: "POST",
+                        data: {
+                            idsList: listDelete
+                        },
+                        dataType: "html",
+                        success: function (data) {
+                            $.ajax({
+                                url: "/ClientPolicy/GetPoliciesByClient",
+                                type: "GET",
+                                data: {
+                                    id: clientId
+                                },
+                                dataType: "html",
+                                success: function (data) {
+                                    $("#TableContent").html(data);
+                                },
+                                error: function () {
+
+                                }
+                            });
+                        },
+                        error: function () {
+
+                        }
+                    });
+                    //$("#TableContent").load("/ClientPolicy/DeleteList", { idsList: listDelete, id: clientId });
+                },
+                null);
+            return false;
+        });
+    });
+
+    function DeletePolicy(id) {
+        alertify.confirm("Delete.","Do you want to delete de client",
+            function () {
+                window.location.href = '@Url.Action("Delete", "Policy")/' + id;
+                },
+                null);
+    }
+
+</script>
+}

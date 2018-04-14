@@ -47,17 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\ClientPolicyRepository.cs" />
     <Compile Include="Domain\ClientRepository.cs" />
-    <Compile Include="Domain\CoverageTypeRepository.cs" />
+    <Compile Include="Domain\Interfaces\IClientPolicyRepository.cs" />
     <Compile Include="Domain\Interfaces\IClientRepository.cs" />
-    <Compile Include="Domain\Interfaces\ICoverageTypeRepository.cs" />
     <Compile Include="Domain\Interfaces\IPolicyRepository.cs" />
     <Compile Include="Domain\Interfaces\IUnitOfWork.cs" />
     <Compile Include="Domain\PolicyRepository.cs" />
     <Compile Include="Domain\UnitOfWork.cs" />
+    <Compile Include="Entities\ClientPolicy.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\Client.cs" />
-    <Compile Include="Entities\CoverageType.cs" />
     <Compile Include="Entities\Policy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Context\InsuranceContext.cs" />

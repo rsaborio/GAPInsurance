@@ -18,7 +18,7 @@ namespace GAP.Insurace.EF
 
         }
 
-        public void Add(T entity)
+        public virtual void Add(T entity)
         {
             _context.Set<T>().Add(entity);
             Save();
@@ -44,22 +44,22 @@ namespace GAP.Insurace.EF
             _context.Dispose();
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
            return _context.Set<T>().ToList();
         }
 
-        public IEnumerable<T> GetBy(Expression<Func<T, bool>> expression)
+        public virtual IEnumerable<T> GetBy(Expression<Func<T, bool>> expression)
         {
             return _context.Set<T>().Where(expression);
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return _context.Set<T>().Find(id);
         }
 
-        public T GetFirst(Expression<Func<T, bool>> expression)
+        public virtual T GetFirst(Expression<Func<T, bool>> expression)
         {
             return _context.Set<T>().Where(expression).FirstOrDefault();
         }

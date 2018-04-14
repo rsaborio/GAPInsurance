@@ -1,0 +1,55 @@
+﻿@model GAP.Insurace.MVC.Models.PolicyModel
+@{
+    ViewBag.Title = "AddUpdate";
+}
+
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.name)
+            @Html.EditorFor(model => model.name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.description)
+            @Html.EditorFor(model => model.description)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.riskType)
+            @Html.EnumDropDownListFor(model => model.riskType)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.coverageType)
+            @Html.EnumDropDownListFor(model => model.coverageType)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.porcentage)
+            @Html.EditorFor(model => model.porcentage)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.initDate)
+            @Html.EditorFor(model => model.initDate)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.monthsCoverage)
+            @Html.EditorFor(model => model.monthsCoverage)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.fee)
+            @Html.EditorFor(model => model.fee)
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn buttom" />
+            <input type="reset" value="Reset" class="btn buttom" />
+        </div>
+
+    }
+
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
+

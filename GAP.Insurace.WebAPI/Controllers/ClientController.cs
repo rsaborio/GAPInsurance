@@ -9,7 +9,6 @@ using System.Web.Http.Description;
 
 namespace GAP.Insurace.WebAPI.Controllers
 {
-    [Authorize]
     public class ClientController : ApiController
     {
         UnitOfWork unit = new UnitOfWork(new InsuranceContext());

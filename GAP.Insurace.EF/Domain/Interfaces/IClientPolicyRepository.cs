@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GAP.Insurace.EF
 {
-    public interface ICoverageTypeRepository : IRepository<CoverageType>
+    public interface IClientPolicyRepository : IRepository<ClientPolicy>
     {
     }
 }

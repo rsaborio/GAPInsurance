@@ -16,6 +16,12 @@ namespace GAP.Insurace.EF
         public int id { get; set; }
 
         /// <summary>
+        /// policy First Name
+        /// </summary>
+        [Required]
+        [StringLength(50)]
+        public string name { get; set; }
+        /// <summary>
         /// Description of insurance policy
         /// </summary>
         [StringLength(50)]
@@ -50,18 +56,19 @@ namespace GAP.Insurace.EF
         /// </summary>
         [Required]
         public RiskType riskType { get; set; }
-
+        
+        /*
         /// <summary>
         /// Relation between Client - Policy
         /// </summary>
         [Required]
         public Client client { get; set; }
-
+        */
         /// <summary>
         /// Relation between Client - CoverageType
         /// </summary>
         [Required]
-        public CoverageType coverageType { get; set; }
+        public CoverageTypeEnum coverageType { get; set; }
     }
 
     public enum RiskType
@@ -71,4 +78,18 @@ namespace GAP.Insurace.EF
         medioAlto,
         alto
     }
+
+    public enum CoverageTypeEnum
+    {
+        Terremoto,
+        Incendio,
+        Robo,
+        Perdida,
+        Desempleo,
+        Enfermedad,
+        Muerte
+    }
+    
+
+
 }

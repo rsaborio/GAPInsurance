@@ -18,6 +18,7 @@ namespace GAP.Insurace.WebAPI.Controllers
             try
             {
                 var result = unit.Policy.GetAll();
+
                 return Ok(result);
             }
             catch (Exception)
@@ -58,7 +59,7 @@ namespace GAP.Insurace.WebAPI.Controllers
             var existingEntity = unit.Policy.GetFirst(x => x.id == entity.id);
             if (existingEntity != null)
             {
-                existingEntity.client = entity.client;
+                existingEntity.name = entity.name;
                 existingEntity.coverageType = entity.coverageType;
                 existingEntity.description = entity.description;
                 existingEntity.fee = entity.fee;

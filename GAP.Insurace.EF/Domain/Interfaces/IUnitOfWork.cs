@@ -9,8 +9,8 @@ namespace GAP.Insurace.EF
     public interface IUnitOfWork
     {
         IClientRepository Client { get; }
-        ICoverageTypeRepository CoverageType { get; }
         IPolicyRepository Policy { get; }
+        IClientPolicyRepository ClientPolicy { get; }
 
         int Complete();
     }
